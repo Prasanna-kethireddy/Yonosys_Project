@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f3f7fc;
+      overflow-x: hidden;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 36px;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 800;
+      position: relative;
+    }
+    h2::after {
+      content: "";
+      width: 80px;
+      height: 3px;
+      background: #007bff;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 3px;
+    }
+
+    /* Contact Cards */
+    .reach-us {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 25px;
+      text-align: center;
+      width: 170px;
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      color: #e2e8f0;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      border: 1px solid #007bff;
+    }
+    .card img {
+      width: 35px;
+      margin-bottom: 15px;
+      transition: transform 0.4s ease;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+    }
+    .card:hover img {
+      transform: rotate(10deg) scale(1.15);
+    }
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+      color: #38bdf8;
+      font-weight: 700;
+    }
+    .card p {
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    /* Forms */
+    .enquiry-form, .subscribe-form {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      max-width: 650px;
+      margin: 50px auto;
+      animation: fadeInUp 1s ease-in-out;
+      color: #222;
+      position: relative;
+      overflow: hidden;
+    }
+    .enquiry-form::before, .subscribe-form::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(#007bff44, transparent, #38bdf844, transparent);
+      animation: rotateBg 8s linear infinite;
+      z-index: 0;
+    }
+    .enquiry-form > *, .subscribe-form > * {
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes rotateBg {
+      100% { transform: rotate(360deg); }
+    }
+    .enquiry-form h3, .subscribe-form h3 {
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #0f172a;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input, textarea {
+      margin-bottom: 15px;
+      padding: 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 15px;
+      transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    input:hover, textarea:hover {
+      transform: scale(1.02);
+    }
+    input:focus, textarea:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 8px rgba(0,123,255,0.6);
+      outline: none;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #0056b3, #00408f);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+    button:active {
+      transform: translateY(1px);
+    }
+
+    /* Success Message */
+    #success-message, #subscribe-message {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      color: green;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .reach-us {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 85%;
+      }
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Contact Us</h2>
+
+    <!-- Contact Cards -->
+    <div class="reach-us">
+      <div class="card" onclick="window.open('https://t.me/stockproteam','_blank')">
+        <img src="https://img.icons8.com/ios-filled/50/1DA1F2/telegram-app.png" alt="Telegram">
+        <h3>Telegram</h3>
+        <p>@stockproteam</p>
+      </div>
+      <div class="card" onclick="window.open('https://wa.me/919599634604','_blank')">
+        <img src="https://img.icons8.com/ios-filled/50/25D366/whatsapp.png" alt="Whatsapp">
+        <h3>WhatsApp</h3>
+        <p>+91 9599634604</p>
+      </div>
+      <div class="card" onclick="window.location.href='tel:+919599634604'">
+        <img src="https://img.icons8.com/ios-filled/50/4CAF50/phone.png" alt="Phone">
+        <h3>Phone</h3>
+        <p>+91 95996 34604</p>
+      </div>
+      <div class="card" onclick="window.location.href='mailto:admin@stockproonline.com'">
+        <img src="https://img.icons8.com/ios-filled/50/FF0000/gmail.png" alt="Mail">
+        <h3>Mail</h3>
+        <p>admin@stockproonline.com</p>
+      </div>
+    </div>
+
+    <!-- Enquiry Form -->
+    <div class="enquiry-form">
+      <h3>Enquiry Form</h3>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email Address" required>
+        <input type="tel" name="mobile" placeholder="Your Mobile Number" required>
+        <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="success-message">✅ Thank you! Your enquiry has been submitted.</div>
+    </div>
+
+    <!-- Stay Updated Form -->
+    <div class="subscribe-form">
+      <h3>Stay Updated</h3>
+      <form id="subscribeForm">
+        <input type="email" name="subscribe_email" placeholder="Enter your email to subscribe" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div id="subscribe-message">✅ You are now subscribed!</div>
+    </div>
+  </div>
+
+
+  <script>
+    // Enquiry Form
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("success-message").style.display = "block";
+      this.reset();
+    });
+
+    // Subscribe Form
+    document.getElementById("subscribeForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("subscribe-message").style.display = "block";
+      this.reset();
+    });
+  </script>
+</body>
+</html>
